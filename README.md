@@ -2,7 +2,8 @@
 
 This is a C++ project template with python support.
 
-Requirements:
+# Requirements:
+
 CMake
 Eigen 3.3.7  
 OpenCV 4.2 
