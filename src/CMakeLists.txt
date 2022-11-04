@@ -3,6 +3,8 @@ set(lib_name ProjectName)
 set(${lib_name}_sources
     project_name/project.h
     project_name/project.cpp
+    project_name/test.h
+    project_name/test.cpp
 )
 
 generate_cpp_sources(FILES ${${lib_name}_sources})

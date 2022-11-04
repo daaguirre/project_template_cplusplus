@@ -1,0 +1,19 @@
+{
+    "workbench.colorTheme": "Default Dark+",
+    "autoDocstring.docstringFormat": "sphinx",
+    "python.envFile": "${workspaceFolder}/.env",
+    "terminal.integrated.env.linux": {
+        "PYTHONPATH": "${workspaceFolder}"
+    },
+    "python.testing.pytestArgs": [
+        "."
+    ],
+    "python.testing.pytestEnabled": true,
+    "python.formatting.provider": "black",
+    "workbench.colorCustomizations": {
+        "titleBar.activeBackground": "#0ea700",
+        // "titleBar.activeBackground": "#a75600"
+    },
+    "python.defaultInterpreterPath": "~/.venv/${workspaceFolderBasename}/bin/python",
+    "cmake.clearOutputBeforeBuild": true,
+}

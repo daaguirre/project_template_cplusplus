@@ -1,12 +1,3 @@
-include(FetchContent)
-
-FetchContent_Declare(
-  googletest
-  GIT_REPOSITORY https://github.com/google/googletest.git
-  GIT_TAG release-1.12.1
-)
-FetchContent_MakeAvailable(googletest)
-
 add_definitions(-DRESOURCES_DIR_PATH="${CMAKE_CURRENT_LIST_DIR}/resources")
 
 SET(app_name ProjectTests)
@@ -19,6 +10,21 @@ SET(${app_name}_sources
 )
 
 generate_cpp_sources(FILES ${${app_name}_sources})
+
+list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_BINARY_DIR})
+list(APPEND CMAKE_PREFIX_PATH ${CMAKE_CURRENT_BINARY_DIR})
+
+# Test dependencies
+conan_cmake_configure(
+    REQUIRES 
+    gtest/1.12.1
+    GENERATORS cmake_find_package)
+conan_cmake_autodetect(settings)
+conan_cmake_install(PATH_OR_REFERENCE .
+                    BUILD missing
+                    REMOTE conancenter
+                    SETTINGS ${settings})
+find_package(GTest)
 
 add_executable(${app_name} ${${app_name}_sources})
 
